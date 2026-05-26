@@ -189,3 +189,60 @@ footer {
     color: #aaa;
     font-size: 0.85rem;
 }
+/* ===================================================
+   VUE TABLETTE : 480px – 960px
+   =================================================== */
+@media (max-width: 960px) {
+    .form-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .illustration {
+        width: 200px;
+        margin-bottom: 10px;
+    }
+
+    .form-container {
+        width: 100%;
+    }
+}
+
+/* ===================================================
+   VUE SMARTPHONE : < 480px
+   =================================================== */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .theme-btn {
+        right: 10px;
+        padding: 4px 10px;
+        font-size: 1rem;
+    }
+
+    .illustration {
+        width: 160px;
+    }
+
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .form-group label {
+        width: auto;
+        margin-bottom: 4px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .textarea-wrapper {
+        width: 100%;
+    }
+
+    .error {
+        padding-left: 0;
+    }
+}

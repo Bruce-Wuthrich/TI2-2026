@@ -107,7 +107,7 @@
                         echo 'Le (' . $date->format('d/m/Y') . ' à ' . $date->format('H\hi') . ')';
                         ?>
                     </p>
-                    <p class="message-content"><?= nl2br(htmlspecialchars($msg['message'])) ?></p>
+                    <p class="message-content"><?=(htmlspecialchars($msg['message'])) ?></p>
                 </div>
             <?php endforeach; ?>
 
