@@ -24,9 +24,9 @@ require_once ROUTE_PROJECT . "/model/guestbookModel.php";
  */
 try {
     $db = new PDO(
-        dsn:      Maria_DSN,
-        username: DB_NAME,
-        password: DB_PWD,
+        dsn:      MARIA_DSN,
+        username: DB_CONNECT_NAME,
+        password: DB_CONNECT_PWD,
         options: [
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]
