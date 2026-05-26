@@ -4,6 +4,35 @@
  * Model de la page livre d'or
  *******************************/
 // INSERTION d'un message dans le livre d'or
+/***************************
+ * Sans le Bonus Pagination
+ **************************/
+// SELECTION de messages dans le livre d'or par ordre de date croissante
+/**
+ * @param PDO $db
+ * @return array
+ * Fonction qui récupère tous les messages du livre d'or par ordre de date croissante
+ * venant de la base de données 'ti2web2026' et de la table 'guestbook'
+ * Si pas de message, renvoie un tableau vide
+ */
+function getAllGuestbook(PDO $db):array
+{
+        try {
+        // Requête SQL : tous les messages par ordre décroissant de date
+        $stmt   = $db->query("SELECT * FROM `guestbook` ORDER BY `datemessage` DESC");
+        // Traitement des données
+        $result = $stmt->fetchAll();
+        $stmt->closeCursor();
+
+        // Si la requête a réussi, on renvoie le tableau de messages
+        return $result;
+
+    } catch (Exception $e) {
+    
+        die($e->getMessage());
+    }
+    return [];
+}
 /**
  * @param PDO $db
  * @param string $firstname
@@ -18,8 +47,15 @@
  * Une requête préparée est utilisée pour éviter les injections SQL
  * Les données sont échappées pour éviter les injections XSS (protection backend)
  */
-function getAllGuestbook(PDO $db, string $firstname, string $lastname, string $usermail, string $phone, string $postcode, string $message): bool
-{
+function addGuestbook(PDO $db,
+                    string $firstname,
+                    string $lastname,
+                    string $usermail,
+                    string $phone,
+                    string $postcode,
+                    string $message
+): bool {
+
     // traitement des variables
     $usermail  = filter_var($usermail, FILTER_VALIDATE_EMAIL);
     $firstname = htmlspecialchars(trim(strip_tags($firstname)));
@@ -44,66 +80,40 @@ function getAllGuestbook(PDO $db, string $firstname, string $lastname, string $u
         ) return false;
 
     // préparation de la requête avec des marqueurs non nommés
+    try {
     $stmt = $db->prepare(
             "INSERT INTO `guestbook` (`firstname`, `lastname`, `usermail`, `phone`, `postcode`, `message`)
              VALUES (?, ?, ?, ?, ?, ?)"
     );
+            $insert = $stmt->execute([$firstname, $lastname, $usermail, $phone, $postcode, $message]);
+        // Bonne pratique
+        $stmt->closeCursor();
+        // Si l'insertion a réussi, on renvoie true
+        if ($insert) return true;
+        // Sinon, on fait un die de l'erreur
+        die("Erreur lors de l'insertion en base de données.");
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+    // return envoi true si réussi, false en cas d'échec
+    return false;
+}
     // attribution des variables
     // $stmt->bindValue(1,$email,PDO::PARAM_STR);
     // $stmt->bindValue(2,$full_name);
     // $stmt->bindValue(3,$title);
     // $stmt->bindValue(4,$text_comment);
-
-    // insertion
-    $insert = $stmt->execute([$usermail,$firstname,$lastname,$message,$postcode,$phone]);
-    // bonne pratique
-    $stmt->closeCursor();
-    // return envoi true si réussi, false en cas d'échec
-    return $insert;
-}
-
-
-function addGuestbook(PDO $db,
-                    string $firstname,
-                    string $lastname,
-                    string $usermail,
-                    string $phone,
-                    string $postcode,
-                    string $message
-): bool
-{
     // traitement des données backend (SECURITE)
 
     // si pas de données complètes ou ne correspondant pas à nos attentes, on renvoie false
-    return false;
     // requête préparée obligatoire !
 
     // si l'insertion a réussi
     // on renvoie true
     // sinon, on renvoie false
 
-}
 
-/***************************
- * Sans le Bonus Pagination
- **************************/
 
-// SELECTION de messages dans le livre d'or par ordre de date croissante
-/**
- * @param PDO $db
- * @return array
- * Fonction qui récupère tous les messages du livre d'or par ordre de date croissante
- * venant de la base de données 'ti2web2026' et de la table 'guestbook'
- * Si pas de message, renvoie un tableau vide
- */
-function getAllGuestbook(PDO $db): array
-{
-    // try catch
-    // si la requête a réussi,
-    // bonne pratique, fermez le curseur
-    // renvoyer le tableau de(s) message(s)
-    return [];
-}
 
 /**************************
  * Pour le Bonus Pagination
