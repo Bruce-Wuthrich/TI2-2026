@@ -45,3 +45,84 @@ main {
     flex-shrink: 0;
     border-radius: 8px;
 }
+
+.form-container {
+    flex: 1;
+}
+
+.form-container h2 {
+    color: #e94560;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+form {
+    background: #16213e;
+    border: 1px solid #e94560;
+    border-radius: 8px;
+    padding: 25px;
+}
+/* lavels a coté des champs */
+.form-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.form-group label {
+    width: 120px;
+    flex-shrink: 0;
+    font-weight: bold;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+.textarea-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.form-group input,
+.form-group textarea {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #e94560;
+    border-radius: 5px;
+    background: #1a1a2e;
+    color: #eee;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff6b81;
+}
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+/* Compteur de caractères */
+.char-count {
+    font-size: 0.8rem;
+    color: #aaa;
+    text-align: right;
+    margin-top: 4px;
+}
+/* Bouton envoi */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #e94560;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+button[type="submit"]:hover {
+    background: #c0392b;
+}

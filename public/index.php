@@ -28,13 +28,13 @@ try {
 } catch (Exception $e) {
     die($e->getMessage());
 }
- /* Si le formulaire a été soumis*/
+ 
 $feedbackMessage = null;
 if (isset($_SESSION['feedbackMessage'])) {
     $feedbackMessage = $_SESSION['feedbackMessage'];
     unset($_SESSION['feedbackMessage']);
 }
-
+/* Si le formulaire a été soumis*/
 if (isset(
     $_POST['firstname'],
     $_POST['lastname'],
@@ -55,7 +55,7 @@ if (isset(
     );
     // si l'insertion a réussi
         if ($insert === true) {
-        // Succès : on stocke le message en session et on redirige (PRG pattern)
+        // Succès : on stocke le message en session et on redirige 
         $_SESSION['feedbackMessage'] = ['type' => 'success', 'text' => 'Votre message a bien été enregistré !'];
         header('Location: index.php');
         exit();
