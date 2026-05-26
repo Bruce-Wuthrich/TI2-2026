@@ -28,11 +28,13 @@ try {
 } catch (Exception $e) {
     die($e->getMessage());
 }
+ /* Si le formulaire a été soumis*/
+$feedbackMessage = null;
+if (isset($_SESSION['feedbackMessage'])) {
+    $feedbackMessage = $_SESSION['feedbackMessage'];
+    unset($_SESSION['feedbackMessage']);
+}
 
-
-/*
- * Si le formulaire a été soumis
- */
 if (isset(
     $_POST['firstname'],
     $_POST['lastname'],
