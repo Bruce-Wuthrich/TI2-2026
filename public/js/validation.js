@@ -140,4 +140,55 @@
 
    Bon travail !
    ========================================================================= */
+  $('#guestbookForm').on('submit', function (e) {
+
+    $('.error-js').remove();
+
+        var valid = true;
+        var regexEmail    = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        var regexPostcode = /^\d{4}$/;
+        var regexPhone    = /^04\d{8}$/;
+
+        var email    = $('#usermail').val().trim();
+        var postcode = $('#postcode').val().trim();
+        var phone    = $('#phone').val().trim();
+        var message  = $('#message').val().trim();
+
+        if (!regexEmail.test(email)) {
+            $('#usermail').closest('.form-group').after('<p class="error error-js">Email invalide (ex : prenom.nom@mail.com).</p>');
+            valid = false;
+        }
+
+        if (!regexPostcode.test(postcode)) {
+            $('#postcode').closest('.form-group').after('<p class="error error-js">Code postal invalide : exactement 4 chiffres (ex : 4000).</p>');
+            valid = false;
+        }
+
+        if (!regexPhone.test(phone)) {
+            $('#phone').closest('.form-group').after('<p class="error error-js">Téléphone invalide : commence par 04, 10 chiffres (ex : 0498150882).</p>');
+            valid = false;
+        }
+
+        if (message.length === 0) {
+            $('#message').closest('.form-group').after('<p class="error error-js">Le message ne peut pas être vide.</p>');
+            valid = false;
+        }
+
+        if (!valid) {
+            e.preventDefault();
+        }
+    });
+    
+        if (localStorage.getItem('theme') === 'light') {
+        $('body').addClass('light');
+        $('#theme-toggle').text('🌙');
+    }
+
+    $('#theme-toggle').on('click', function () {
+        $('body').toggleClass('light');
+        var isLight = $('body').hasClass('light');
+        $(this).text(isLight ? '🌙' : '☀');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
 

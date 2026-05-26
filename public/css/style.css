@@ -246,3 +246,98 @@ footer {
         padding-left: 0;
     }
 }
+
+/* Error pour js */
+.error {
+    flex: 0 0 100%;
+    padding-left: 130px;
+    color: #e74c3c;
+    font-size: 0.85em;
+    margin-top: -8px;
+    margin-bottom: 4px;
+}
+
+/* ===================================================
+   LIGHT MODE
+   =================================================== */
+body.light {
+    background: #f0f2f5;
+    color: #222;
+}
+
+body.light header,
+body.light footer {
+    background: #fff;
+}
+
+body.light form {
+    background: #fff;
+}
+
+body.light .form-group input,
+body.light .form-group textarea {
+    background: #f0f2f5;
+    color: #222;
+}
+
+body.light .form-group label {
+    color: #444;
+}
+
+body.light .char-count {
+    color: #666;
+}
+
+body.light .message-card {
+    background: #fff;
+}
+
+body.light .message-meta {
+    color: #666;
+}
+
+body.light .message-content {
+    color: #222;
+}
+
+body.light .nb-messages {
+    color: #666;
+}
+
+body.light .pagination {
+    color: #666;
+}
+
+body.light .feedback--success {
+    background: #d4edda;
+    color: #155724;
+    border-color: #27ae60;
+}
+
+body.light .feedback--error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+body.light .theme-btn {
+    color: #222;
+}
+
+/* Bouton dark/light mode */
+.theme-btn {
+    position: absolute;
+    right: 20px;
+    background: transparent;
+    border: 2px solid #e94560;
+    border-radius: 50px;
+    color: #eee;
+    font-size: 1.1rem;
+    padding: 5px 14px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.theme-btn:hover {
+    background: #e94560;
+    color: #fff;
+}

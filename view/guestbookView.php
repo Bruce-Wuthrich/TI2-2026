@@ -17,6 +17,7 @@
 <body>
     <header>
         <h1>T12 | Livre d'or</h1>
+        <button><img src="img/canva-simple-black-gear-icon-MAG-NeEsqa8.png" alt="ecrou"></button>
         <button id="theme-toggle" class="theme-btn" title="Changer le thème">☀</button>
     </header>
     <main>
@@ -129,7 +130,7 @@
     echo '<p>$_GET</p>';
     var_dump($_GET);
     ?>
-    <script src="public/js/jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/validation.js"></script>
 </body>
 
