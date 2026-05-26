@@ -1,19 +1,15 @@
 <?php
 # public/index.php
-
-
 /*
  * Front Controller de la gestion du livre d'or
  */
-
 /*
  * Chargement des dépendances
  */
 // chargement de configuration
-require_once "../config.php";
+    require_once "../config.php";
 // chargement du modèle de la table guestbook
-
-require_once ROUTE_PROJECT . "/model/guestbookModel.php";
+    require_once URL_BASE ."/model/guestbookModel.php";
 
 /*
  * Connexion à la base de données en utilisant PDO
@@ -24,17 +20,16 @@ require_once ROUTE_PROJECT . "/model/guestbookModel.php";
  */
 try {
     $db = new PDO(
-        dsn:      MARIA_DSN,
-        username: DB_CONNECT_NAME,
-        password: DB_CONNECT_PWD,
-        options: [
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-        ]
+        dsn:      Maria_DSN,
+        username: DB_LOGIN,
+        password: DB_PWD,
     );
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
     die($e->getMessage());
 }
+
+
 /*
  * Si le formulaire a été soumis
  */
@@ -103,7 +98,7 @@ $nbMessages = count($messages);
 
 // Appel de la vue
 
-require ROUTE_PROJECT . "/view/guestbookView.php";
+require URL_BASE . "/view/guestbookView.php";
 
 // fermeture de la connexion (bonne pratique)
 $db = null;

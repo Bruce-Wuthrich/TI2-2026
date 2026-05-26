@@ -13,9 +13,23 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>TI2 | Livre d'or</h1>
-<!-- Formulaire d'ajout d'un message -->
-<h2>Ici le formulaire</h2>
+    <header>
+        <h1>T12 | Livre d'or</h1>
+        <button id="theme-toggle" class="theme-btn" title="Changer le thème">☀</button>
+    </header>
+    <main>
+        <div class="form-section">
+            <div class="form-container">
+            <h2>Ici le formulaire</h2>
+            <?php if (!empty($feedbackMessage)): ?>
+            <p class="feedback <?= $feedbackMessage['type'] === 'success' ? 'feedback--success' : 'feedback--error' ?>">
+            <?= htmlspecialchars($feedbackMessage['text']) ?>
+            </p>
+            <?php endif; ?>
+            </div>
+        </div>
+    </main>
+
 <!-- Si pas de message -->
 <h3>Pas encore de message</h3>
 <!-- Si 1 message -->
