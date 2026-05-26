@@ -3,9 +3,7 @@
 /********************************
  * Model de la page livre d'or
  *******************************/
-
 // INSERTION d'un message dans le livre d'or
-
 /**
  * @param PDO $db
  * @param string $firstname
@@ -20,6 +18,51 @@
  * Une requête préparée est utilisée pour éviter les injections SQL
  * Les données sont échappées pour éviter les injections XSS (protection backend)
  */
+function getAllGuestbook(PDO $db, string $firstname, string $lastname, string $usermail, string $phone, string $postcode, string $message): bool
+{
+    // traitement des variables
+    $usermail  = filter_var($usermail, FILTER_VALIDATE_EMAIL);
+    $firstname = htmlspecialchars(trim(strip_tags($firstname)));
+    $lastname  = htmlspecialchars(trim(strip_tags($lastname)));
+    $phone     = htmlspecialchars(trim(strip_tags($phone)));
+    $postcode  = htmlspecialchars(trim(strip_tags($postcode)));
+    $message   = htmlspecialchars(trim(strip_tags($message)));
+    
+    // on envoie false si il y a une seule erreur
+        if (
+        $usermail === false           ||
+        strlen($usermail)  > 200      ||
+        empty($firstname)             ||
+        strlen($firstname) > 100      ||
+        empty($lastname)              ||
+        strlen($lastname)  > 100      ||
+        empty($message)               ||
+        strlen($message)   > 500      ||
+        !preg_match('/^\d{4}$/', $postcode)    || 
+        strlen($phone) > 20                    ||
+        !preg_match('/^\d+$/', $phone)            
+        ) return false;
+
+    // préparation de la requête avec des marqueurs non nommés
+    $stmt = $db->prepare(
+            "INSERT INTO `guestbook` (`firstname`, `lastname`, `usermail`, `phone`, `postcode`, `message`)
+             VALUES (?, ?, ?, ?, ?, ?)"
+    );
+    // attribution des variables
+    // $stmt->bindValue(1,$email,PDO::PARAM_STR);
+    // $stmt->bindValue(2,$full_name);
+    // $stmt->bindValue(3,$title);
+    // $stmt->bindValue(4,$text_comment);
+
+    // insertion
+    $insert = $stmt->execute([$usermail,$firstname,$lastname,$message,$postcode,$phone]);
+    // bonne pratique
+    $stmt->closeCursor();
+    // return envoi true si réussi, false en cas d'échec
+    return $insert;
+}
+
+
 function addGuestbook(PDO $db,
                     string $firstname,
                     string $lastname,
