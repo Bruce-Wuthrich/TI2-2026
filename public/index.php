@@ -60,6 +60,6 @@ require_once URL_BASE . "/model/guestbookModel.php";
 
 // Appel de la vue
 
-include URL_BASE . "/view/guestbookView.php";
+include_once . "/view/guestbookView.php";
 
 // fermeture de la connexion (bonne pratique)
