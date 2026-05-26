@@ -17,19 +17,21 @@
 <body>
     <header>
         <h1>T12 | Livre d'or</h1>
-        <button><img src="img/canva-simple-black-gear-icon-MAG-NeEsqa8.png" alt="ecrou"></button>
+        <img src="img/—Pngtree—creative writing book logo vector_23288471.png" alt="Illustration livre d'or" class="illustration">
         <button id="theme-toggle" class="theme-btn" title="Changer le thème">☀</button>
     </header>
     <main>
         <div class="form-section">
-             <img src="img/—Pngtree—creative writing book logo vector_23288471.png" alt="Illustration livre d'or" class="illustration">
+             
             <div class="form-container">
                 <h2>Ici le formulaire</h2>
+                <!-- feedback qui donne suces ou error -->
                 <?php if (!empty($feedbackMessage)): ?>
                     <p class="feedback <?= $feedbackMessage['type'] === 'success' ? 'feedback--success' : 'feedback--error' ?>">
                         <?= htmlspecialchars($feedbackMessage['text']) ?>
                     </p>
                 <?php endif; ?>
+                <!--formulaire -->
                 <form action="" method="post" id="guestbookForm" novalidate>
 
                     <div class="form-group">
@@ -124,11 +126,11 @@
     <!-- Pagination (BONUS) -->
     <?php
     // À commenter quand on a fini de tester
-    echo "<h3>Nos var_dump() pour le débugage</h3>";
-    echo '<p>$_POST</p>';
-    var_dump($_POST);
-    echo '<p>$_GET</p>';
-    var_dump($_GET);
+   // echo "<h3>Nos var_dump() pour le débugage</h3>";
+   // echo '<p>$_POST</p>';
+   // var_dump($_POST);
+   // echo '<p>$_GET</p>';
+   // var_dump($_GET);
     ?>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/validation.js"></script>
