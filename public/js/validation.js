@@ -147,7 +147,7 @@
         var valid = true;
         var regexEmail    = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var regexPostcode = /^\d{4}$/;
-        var regexPhone    = /^04\d{8}$/;
+        var regexPhone    = /^(\+32|0)[1-9](\d{2}){4}$/;
 
         var email    = $('#usermail').val().trim();
         var postcode = $('#postcode').val().trim();

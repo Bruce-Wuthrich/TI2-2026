@@ -26,9 +26,10 @@ header h1 {
     letter-spacing: 2px;
 }
 main {
-    flex: 1;
-    max-width: 1000px;
-    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    grid-template-rows: auto;
     margin: 30px auto;
     padding: 0 15px;
 }
@@ -246,7 +247,7 @@ footer {
     }
 }
 
-/* Error pour js */
+/* Error et succes pour js */
 .error {
     flex: 0 0 100%;
     padding-left: 130px;
@@ -255,6 +256,7 @@ footer {
     margin-top: -8px;
     margin-bottom: 4px;
 }
+
 
 /* ===================================================
    LIGHT MODE
