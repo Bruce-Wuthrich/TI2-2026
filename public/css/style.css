@@ -1,229 +1,377 @@
-* {
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 body {
-    font-family: Arial, sans-serif;
-    background: #1a1a2e;
-    color: #eee;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #000000;
+    color: #e8e8e8;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
+
+/* ========================
+   HEADER
+   ======================== */
 header {
-    background: #16213e;
-    padding: 20px;
-    border-bottom: 3px solid #e94560;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    margin: 10px 20px;
+    border-radius: 10px;
 }
+
 header h1 {
-    font-size: 2rem;
-    color: #e94560;
-    letter-spacing: 2px;
+    font-size: 1.0rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
 }
+
+.theme-btn {
+    position: absolute;
+    right: 18px;
+    background: rgba(255, 255, 255, );
+    border: 1px solid rgba(255, 255, 255, );
+    border-radius: 10px;
+    color: #ddd;
+    font-size: 1rem;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-weight: 500;
+}
+
+.theme-btn:hover {
+    background: rgba(255, 255, 255,);
+}
+
+/* ========================
+   MAIN LAYOUT
+   ======================== */
 main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 2fr;
     gap: 50px;
-    grid-template-rows: auto;
-    margin: 30px auto;
-    padding: 0 15px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 10px auto 25px;
+    padding: 10px 20px;
+    flex: 1;
+    align-items: start;
 }
-/*SECTION FORMULAIRE  */
+
+
+/* ========================
+   FORM SECTION
+   ======================== */
 .form-section {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 30px;
-    margin-bottom: 40px;
+    flex-direction: column;
+    
 }
-
-h2 {
-    text-align: center;
+.images {
+    display: flex;
+    justify-content: center;
 }
-
+img {
+    width: 150px;
+    gap: 20px;
+    margin: 10px;
+}
 .form-container {
-    flex: 1;
+    background: rgba(255, 255, 255, );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 5px solid rgba(255, 255, 255,);
+    border-radius: 15px;
+
+    
 }
 
 .form-container h2 {
-    color: #e94560;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 600;
     margin-bottom: 20px;
-    font-size: 1.3rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px ;
+    padding: 20px;
 }
+
+
+
 form {
-    background: #16213e;
-    border: 1px solid #e94560;
-    border-radius: 8px;
-    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
 }
-/* lavels a coté des champs */
+
 .form-group {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
+
 .form-group label {
-    width: 120px;
+    width: 100px;
     flex-shrink: 0;
-    font-weight: bold;
-    color: #ccc;
-    font-size: 0.9rem;
+    font-size: 1rem;
+    color: #bbb;
+    text-align: right;
 }
+
+.form-group input,
+.form-group textarea {
+    flex: 1;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #eee;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+    min-width: 0;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.85rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
 .textarea-wrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
     min-width: 0;
 }
-.form-group input,
-.form-group textarea {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid #e94560;
-    border-radius: 5px;
-    background: #1a1a2e;
-    color: #eee;
-    font-family: inherit;
-    font-size: 0.95rem;
-}
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #ff6b81;
-}
-.form-group textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-/* Compteur de caractères */
+
 .char-count {
+    font-size: 0.80rem;
+    color: #777;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* ========================
+   CHECKBOX RGPD
+   ======================== */
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 5px;
+    padding-left: 110px;
+}
+
+.form-check input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    flex-shrink: 0;
+    accent-color: #aaa;
+}
+
+.form-check label {
     font-size: 0.8rem;
     color: #aaa;
-    text-align: right;
-    margin-top: 4px;
+    cursor: pointer;
+    line-height: 1.4;
 }
-/* Bouton envoi */
+
+/* ========================
+   BOUTON ENVOI
+   ======================== */
 button[type="submit"] {
     display: block;
     width: 100%;
-    padding: 12px;
-    background: #e94560;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.11);
+    color: #fff;
+    border: 5px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.90rem;
+    font-weight: 500;
     margin-top: 10px;
     transition: background 0.2s;
+    letter-spacing: 0.5px;
 }
+
 button[type="submit"]:hover {
-    background: #c0392b;
+    background: rgba(255, 255, 255,);
 }
-/* ===== MESSAGES DE RETOUR ===== */
+
+/* ========================
+   FEEDBACK (succès / erreur)
+   ======================== */
 .feedback {
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 15px;
-    font-weight: bold;
+    font-size: 0.90rem;
+    font-weight: 500;
 }
+
 .feedback--success {
-    background: #1e5631;
+    background: rgba(30, 86, 49, 0.50);
     color: #a8f0a8;
-    border: 1px solid #27ae60;
+    border: 1px solid rgba(39, 174, 96, 0.50);
 }
 
 .feedback--error {
-    background: #5e1010;
+    background: rgba(94, 16, 16, 0.50);
     color: #f5a0a0;
-    border: 1px solid #e94560;
+    border: 1px solid rgba(220, 50, 50, 0.50);
 }
 
-/* ===== SECTION MESSAGES PRÉCÉDENTS ===== */
+/* ========================
+   SECTION MESSAGES
+   ======================== */
 .messages-section {
-    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
 }
+
 .messages-section h2 {
-    color: #e94560;
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-align: left;
 }
 
 .nb-messages {
-    text-align: center;
-    color: #aaa;
-    margin-bottom: 20px;
+    color: #999;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: left;
 }
 
 .message-card {
-    background: #16213e;
-    border: 1px solid #e94560;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
     padding: 15px 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .message-meta {
-    font-size: 0.82rem;
-    color: #aaa;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 10px;
+    line-height: 1.5;
 }
 
 .message-content {
-    color: #eee;
-    line-height: 1.6;
+    color: #ddd;
+    font-size: 1rem;
+    line-height: 1.70;
 }
-/* ===== FOOTER ===== */
+
+/* ========================
+   FOOTER
+   ======================== */
 footer {
     text-align: center;
-    padding: 15px;
-    background: #16213e;
-    border-top: 2px solid #e94560;
-    color: #aaa;
-    font-size: 0.85rem;
+    padding: 12px;
+    background: rgba(40, 40, 40, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    color: #777;
+    font-size: 0.80rem;
 }
-/* ===================================================
-   VUE TABLETTE : 480px – 960px
-   =================================================== */
+
+/* ========================
+   ERREURS JS (validation)
+   ======================== */
+.error {
+    flex: 0 0 100%;
+    padding-left: 110px;
+    color: #e74c3c;
+    font-size: 0.8em;
+    margin-top: -6px;
+    margin-bottom: 4px;
+}
+
+/* ========================
+   TABLETTE : <= 960px
+   ======================== */
 @media (max-width: 960px) {
-    .form-section {
-        flex-direction: column;
-        align-items: center;
+    header {
+        margin: 10px 15px;
+        border-radius: 12px;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
     }
 
     .illustration {
-        width: 200px;
-        margin-bottom: 10px;
+        width: 50px;
+        height: 50px;
     }
 
-    .form-container {
-        width: 100%;
+    .messages-section {
+        margin-top: 0;
     }
 }
 
-/* ===================================================
-   VUE SMARTPHONE : < 480px
-   =================================================== */
+/* ========================
+   MOBILE : <= 480px
+   ======================== */
 @media (max-width: 480px) {
+    header {
+        margin: 8px 10px;
+        padding: 12px 15px;
+    }
+
     header h1 {
-        font-size: 1.4rem;
+        font-size: 1.10rem;
     }
 
     .theme-btn {
-        right: 10px;
-        padding: 4px 10px;
-        font-size: 1rem;
+        padding: 5px 10px;
+        font-size: 0.80rem;
     }
 
     .illustration {
-        width: 160px;
+        width: 35px;
+        height: 35px;
+        left: 15px;
+    }
+
+    main {
+        padding: 0 10px;
     }
 
     .form-group {
@@ -233,7 +381,8 @@ footer {
 
     .form-group label {
         width: auto;
-        margin-bottom: 4px;
+        text-align: left;
+        margin-bottom: 5px;
     }
 
     .form-group input,
@@ -242,62 +391,82 @@ footer {
         width: 100%;
     }
 
+    .form-check {
+        padding-left: 0;
+    }
+
     .error {
         padding-left: 0;
     }
 }
 
-/* Error et succes pour js */
-.error {
-    flex: 0 0 100%;
-    padding-left: 130px;
-    color: #e74c3c;
-    font-size: 0.85em;
-    margin-top: -8px;
-    margin-bottom: 4px;
-}
-
-
-/* ===================================================
-   LIGHT MODE
-   =================================================== */
+/* ========================
+   MODE CLAIR (light)
+   ======================== */
 body.light {
-    background: #f0f2f5;
+    background: #a4a4a5;
     color: #222;
 }
 
-body.light header,
-body.light footer {
-    background: #fff;
+body.light header {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.08);
 }
 
-body.light form {
-    background: #fff;
+body.light header h1 {
+    color: #222;
+}
+
+body.light .theme-btn {
+    color: #333;
+    background: rgba(0, 0, 0, 0.07);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .form-container {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .form-container h2 {
+    color: #222;
 }
 
 body.light .form-group input,
 body.light .form-group textarea {
-    background: #f0f2f5;
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.1);
     color: #222;
 }
 
+body.light .form-group input::placeholder,
+body.light .form-group textarea::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+}
+
 body.light .form-group label {
-    color: #444;
+    color: #555;
 }
 
 body.light .char-count {
-    color: #666;
+    color: #777;
 }
 
-body.light .message-card {
-    background: #fff;
+body.light .form-check label {
+    color: #555;
 }
 
-body.light .message-meta {
-    color: #666;
+body.light button[type="submit"] {
+    background: rgba(0, 0, 0, 0.1);
+    color: #222;
+    border-color: rgba(0, 0, 0, 0.2);
 }
 
-body.light .message-content {
+body.light button[type="submit"]:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body.light .messages-section h2 {
     color: #222;
 }
 
@@ -305,46 +474,33 @@ body.light .nb-messages {
     color: #666;
 }
 
-body.light .pagination {
+body.light .message-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light .message-meta {
+    color: #777;
+}
+
+body.light .message-content {
+    color: #333;
+}
+
+body.light footer {
+    background: rgba(255, 255, 255, 0.8);
+    border-top-color: rgba(0, 0, 0,);
     color: #666;
 }
 
 body.light .feedback--success {
-    background: #d4edda;
+    background: rgba(212, 237, 218, 0.8);
     color: #155724;
-    border-color: #27ae60;
+    border-color: rgba(39, 174, 96, 0.5);
 }
 
 body.light .feedback--error {
-    background: #f8d7da;
+    background: rgba(248, 215, 218, 0.8);
     color: #721c24;
-}
-
-body.light .theme-btn {
-    color: #222;
-}
-
-/* Bouton dark/light mode */
-.theme-btn {
-    position: absolute;
-    right: 20px;
-    background: transparent;
-    border: 2px solid #e94560;
-    border-radius: 50px;
-    color: #eee;
-    font-size: 1.1rem;
-    padding: 5px 14px;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-}
-
-.theme-btn:hover {
-    background: #e94560;
-    color: #fff;
-}
-.illustration {
-    width: 50px;
-    border-radius: 8px;
-    position: absolute;
-    left: 20px;
+    border-color: rgba(220, 50, 50, 0.4);
 }

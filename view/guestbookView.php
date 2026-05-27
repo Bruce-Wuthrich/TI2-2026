@@ -17,12 +17,13 @@
 <body>
     <header>
         <h1>T12 | Livre d'or</h1>
-        <img src="img/—Pngtree—creative writing book logo vector_23288471.png" alt="Illustration livre d'or" class="illustration">
         <button id="theme-toggle" class="theme-btn" title="Changer le thème">☀</button>
     </header>
     <main>
         <div class="form-section">
-             
+            <div class="images">
+             <img src="img/images (1)-Photoroom.png" alt="">
+            </div>
             <div class="form-container">
                 <h2>Ici le formulaire</h2>
                 <!-- feedback qui donne suces ou error -->
@@ -35,6 +36,7 @@
                 <form action="" method="post" id="guestbookForm" novalidate>
 
                     <div class="form-group">
+                        
                         <label for="firstname">Prénom *</label>
                         <input type="text" name="firstname" id="firstname"
                             value="<?= htmlspecialchars($_POST['firstname'] ?? '') ?>"
@@ -76,6 +78,11 @@
                                 required maxlength="500"><?= htmlspecialchars($_POST['message'] ?? '') ?></textarea>
                             <span id="charCount" class="char-count">0 / 300 caractères</span>
                         </div>
+                    </div>
+
+                    <div class="form-check">
+                        <input type="checkbox" id="check" name="check" checked>
+                        <label for="check">J'accepte le stockage de mes données personnelles.</label>
                     </div>
 
                     <button type="submit">Envoyer</button>
