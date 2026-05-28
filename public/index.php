@@ -1,4 +1,5 @@
 <?php
+session_start();
 # public/index.php
 /*
  * Front Controller de la gestion du livre d'or
