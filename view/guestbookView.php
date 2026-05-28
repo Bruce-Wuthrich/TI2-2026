@@ -103,7 +103,6 @@
                 <p class="nb-messages">Il y a <?= $nbMessages ?> messages</p>
             <?php endif; ?>
 
-            <?php if (!empty($paginationHtml)) echo $paginationHtml; ?>
             <!-- Autres messages -->
             <?php foreach ($messages as $msg): ?>
                 <div class="message-card">
