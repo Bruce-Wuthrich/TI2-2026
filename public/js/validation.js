@@ -145,14 +145,29 @@
     $('.error-js').remove();
 
         var valid = true;
+        var regexNom      = /^(?=.*\S).{2,}$/;
+        var regexPrenom   = /^(?=.*\S).{2,}$/;
         var regexEmail    = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         var regexPostcode = /^\d{4}$/;
         var regexPhone    = /^(\+32|0)[1-9](\d{2}){4}$/;
 
+        var Nom      = $('#lastname').val().trim();
+        var Prenom   = $('#firstname').val().trim();
         var email    = $('#usermail').val().trim();
         var postcode = $('#postcode').val().trim();
         var phone    = $('#phone').val().trim();
         var message  = $('#message').val().trim();
+
+
+        if (!regexNom.test(Nom)) {
+        $('#lastname').closest('.form-group').after('<p class="error error-js">Prénom invalide (ex : Bruce).</p>');
+        valid = false;
+        }
+
+        if (!regexPrenom.test(Prenom)) {
+        $('#firstname').closest('.form-group').after('<p class="error error-js">Nom invalide (ex : Wuthrich).</p>');
+        valid = false;
+        }
 
         if (!regexEmail.test(email)) {
             $('#usermail').closest('.form-group').after('<p class="error error-js">Email invalide (ex : prenom.nom@mail.com).</p>');

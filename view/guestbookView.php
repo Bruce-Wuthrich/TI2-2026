@@ -111,10 +111,10 @@
                         <?= htmlspecialchars($msg['firstname']) ?>
                         <?= htmlspecialchars($msg['lastname']) ?>
                         - <?= htmlspecialchars($msg['usermail']) ?>
-                        a écrit ce message le
+                        a écrit ce message 
                         <?php
                         $date = new DateTime($msg['datemessage']);
-                        echo 'Le (' . $date->format('d/m/Y') . ' à ' . $date->format('H\hi') . ')';
+                        echo ' (' . $date->format('d/m/Y') . ' à ' . $date->format('H\hi') . ')';
                         ?>
                     </p>
                     <p class="message-content"><?=(htmlspecialchars($msg['message'])) ?></p>
